@@ -13,7 +13,7 @@ class _splash_screenState extends State<splash_screen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 7),(){
+    Future.delayed(Duration(seconds: 5),(){
       Get.to(welcome());
     });
   }
@@ -21,33 +21,36 @@ class _splash_screenState extends State<splash_screen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF8F7F3),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Image.asset(
-              'assets/images/blackLogo.png',
-              width: 300,
-              height: 300,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Text(
-              'CosmicPages',
-              style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Italiana',
-                  color: Color(0xFF31496F),),
-            ),
-            Text(
-              textAlign: TextAlign.center,
-              'Explore the Universe of Books - Read, Discover, and Soar Beyond!',
-              style: TextStyle(
-                  fontSize: 18,),
-            ),
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(10.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                'assets/images/blackLogo.png',
+                width: 300,
+                height: 300,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(
+                'CosmicPages',
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Italiana',
+                    color: Color(0xFF31496F),),
+              ),
+              Text(
+                textAlign: TextAlign.center,
+                'Explore the Universe of Books - Read, Discover, and Soar Beyond!',
+                style: TextStyle(
+                    fontSize: 18,),
+              ),
+            ],
+          ),
         ),
       ),
     );

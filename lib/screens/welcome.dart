@@ -1,4 +1,5 @@
 import 'package:cosmic_pages/screens/login.dart';
+import 'package:cosmic_pages/screens/register.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -14,8 +15,10 @@ class welcome extends StatelessWidget {
             children: [
               Container(
                 child: Image.asset(
-                  'assets/images/download.png',
-                  fit: BoxFit.cover,
+                  'assets/images/blah.png',
+                  fit: BoxFit.fitHeight,
+                  height: MediaQuery.of(context).size.height*1,
+                  width: double.infinity,
                 ),
               ),
               Container(
@@ -62,7 +65,7 @@ class welcome extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Get.to(login());
+                          Get.to(Register());
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF31496F),
