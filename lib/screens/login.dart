@@ -1,3 +1,5 @@
+import 'package:cosmic_pages/screens/forgotPassword.dart';
+import 'package:cosmic_pages/screens/register.dart';
 import 'package:cosmic_pages/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -19,12 +21,14 @@ class _loginState extends State<login> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 20,
-              ),
-              IconButton(onPressed: () {
-                Get.to(welcome());
-              }, icon: Icon(Icons.arrow_back_ios)),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              IconButton(
+                  onPressed: () {
+                    Get.to(welcome());
+                  },
+                  icon: Icon(Icons.arrow_back_ios)),
               SizedBox(
                 height: 30,
               ),
@@ -70,7 +74,9 @@ class _loginState extends State<login> {
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(Forgotpassword());
+                    },
                     style: TextButton.styleFrom(
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8)),
@@ -104,14 +110,32 @@ class _loginState extends State<login> {
                   ),
                 ),
               ),
+              SizedBox(
+                height: 20,
+              ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Or'),
+                    SizedBox(height: 10),
+                    Text(
+                      'Login with Google',
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ],
+                ),
+              ),
               Spacer(),
               Center(
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.to(Register());
+                  },
                   style: TextButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8)),
-                    ),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                  ),
                   child: Text(
                     'New member? Register',
                     style: TextStyle(color: Colors.black),

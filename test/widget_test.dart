@@ -6,10 +6,8 @@
 // tree, read text, and verify that the values of widget properties are correct.
 
 import 'package:cosmic_pages/screens/splash_screen.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:cosmic_pages/main.dart';
 
 void main() {
