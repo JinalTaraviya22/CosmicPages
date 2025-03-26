@@ -11,7 +11,7 @@ main() => runApp(
         theme: ThemeData(
           fontFamily: 'OpenSans',
         ),
-        home: bookintro(),
+        home: home(),
       ),
     );
 

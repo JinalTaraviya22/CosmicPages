@@ -1,3 +1,4 @@
+import 'package:cosmic_pages/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cosmic_pages/screens/welcome.dart';
@@ -16,7 +17,7 @@ class _bookintroState extends State<bookintro> {
       appBar: AppBar(
         leading: IconButton(
           onPressed: () {
-            Get.to(welcome());
+            Get.to(home());
           },
           icon: Icon(Icons.arrow_back_ios),
         ),
