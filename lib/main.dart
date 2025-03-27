@@ -2,6 +2,7 @@
 import 'package:cosmic_pages/screens/splash_screen.dart';
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/bookintro.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +12,7 @@ main() => runApp(
         theme: ThemeData(
           fontFamily: 'OpenSans',
         ),
-        home: home(),
+        home: author(),
       ),
     );
 

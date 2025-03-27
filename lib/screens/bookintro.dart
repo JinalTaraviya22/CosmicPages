@@ -54,6 +54,16 @@ class _bookintroState extends State<bookintro> {
                   children: [
                     Column(
                       children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Icon(
+                              Icons.favorite_border,
+                              color: Colors.white,
+                              size: 20,
+                            ),
+                          ],
+                        ),
                         Center(
                           child: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -199,7 +209,8 @@ class _bookintroState extends State<bookintro> {
                     ),
                   ),
                   child: Text(
-                    "Add to Cart",
+                    'Add to Card',
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 18, color: Colors.white),
                   ),
                 ),
