@@ -1,8 +1,5 @@
 // import 'package:cosmic_pages/screens/search.dart';
 import 'package:cosmic_pages/screens/splash_screen.dart';
-import 'package:cosmic_pages/screens/home.dart';
-import 'package:cosmic_pages/screens/bookintro.dart';
-import 'package:cosmic_pages/screens/author.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
