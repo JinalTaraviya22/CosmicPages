@@ -42,11 +42,9 @@ class _ratingreviewState extends State<ratingreview> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Text(
-                  "Rate this Book",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+              Text(
+                "Rate this Book",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
               Center(

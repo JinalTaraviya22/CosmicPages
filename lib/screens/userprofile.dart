@@ -1,0 +1,234 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:cosmic_pages/screens/home.dart';
+
+class userprofile extends StatefulWidget {
+  const userprofile({super.key});
+
+  @override
+  State<userprofile> createState() => _userprofileState();
+}
+
+class _userprofileState extends State<userprofile> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          onPressed: () {
+            Get.to(home());
+          },
+          icon: Icon(Icons.arrow_back_ios),
+        ),
+        actions: [
+          PopupMenuButton<String>(
+            onSelected: (value) {
+              print(value);
+            },
+            itemBuilder: (BuildContext context) {
+              return ['Edit Profile', 'Setting', 'Logout']
+                  .map((String choice) => PopupMenuItem<String>(
+                        value: choice,
+                        child: Text(choice),
+                      ))
+                  .toList();
+            },
+          ),
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Account",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: Image.asset(
+                      "assets/images/user1.png",
+                      width: 120,
+                      height: 110,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(width: 15),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Author Name",
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        "angelraiyanii@gmail.com",
+                        style: TextStyle(fontSize: 16),
+                      ),
+                    ],
+                  )
+                ],
+              ),
+              SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color.fromRGBO(149, 175, 202, 1),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.shopping_bag, color: Colors.white),
+                      ),
+                      title: Text("Shopping History",
+                          style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {},
+                    ),
+                    Divider(
+                        color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
+                        thickness: 1,
+                        height: 1,
+                        indent: 15,
+                        endIndent: 15),
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.person, color: Colors.white),
+                      ),
+                      title: Text("Profile Settings",
+                          style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {},
+                    ),
+                    Divider(
+                        color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
+                        thickness: 1,
+                        height: 1,
+                        indent: 15,
+                        endIndent: 15),
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.privacy_tip, color: Colors.white),
+                      ),
+                      title: Text("Privacy Policies",
+                          style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {},
+                    ),
+                    Divider(
+                        color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
+                        thickness: 1,
+                        height: 1,
+                        indent: 15,
+                        endIndent: 15),
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.help, color: Colors.white),
+                      ),
+                      title:
+                          Text("Help", style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {},
+                    ),
+                    Divider(
+                        color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
+                        thickness: 1,
+                        height: 1,
+                        indent: 15,
+                        endIndent: 15),
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.book, color: Colors.white),
+                      ),
+                      title: Text("Published Books",
+                          style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {},
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 70),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)),
+                  backgroundColor: Color.fromRGBO(49, 73, 111, 1),
+                ),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: 50,
+                  child: Center(
+                    child: Text(
+                      'LogOut',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: 18, color: Colors.white),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
