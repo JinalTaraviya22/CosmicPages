@@ -1,3 +1,4 @@
+import 'package:cosmic_pages/screens/dashboard.dart';
 import 'package:cosmic_pages/screens/login.dart';
 import 'package:cosmic_pages/screens/welcome.dart';
 import 'package:flutter/material.dart';
@@ -108,7 +109,9 @@ class _RegisterState extends State<Register> {
                   height: 20,
                 ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Get.off(Dashboard());
+                  },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
