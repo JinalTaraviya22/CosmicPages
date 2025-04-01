@@ -1,5 +1,4 @@
-// import 'package:cosmic_pages/screens/splash_screen.dart';
-import 'package:cosmic_pages/screens/profilesettings.dart';
+import 'package:cosmic_pages/screens/likebooks.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +8,7 @@ main() => runApp(
         theme: ThemeData(
           fontFamily: 'OpenSans',
         ),
-        home: profilesettings(),
+        home: likebooks(),
       ),
     );
 
