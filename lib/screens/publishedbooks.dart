@@ -17,7 +17,7 @@ class _publishedbookyState extends State<publishedbooks> {
         toolbarHeight: 80,
         automaticallyImplyLeading: false,
         leading: IconButton(
-          onPressed: () => Navigator.pop(context),
+          onPressed: (){},
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [

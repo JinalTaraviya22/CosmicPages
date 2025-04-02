@@ -1,4 +1,9 @@
+import 'package:cosmic_pages/screens/bookintro.dart';
+import 'package:cosmic_pages/screens/cart.dart';
+import 'package:cosmic_pages/screens/likebooks.dart';
+import 'package:cosmic_pages/screens/userprofile.dart';
 import 'package:flutter/material.dart';
+import 'package:cosmic_pages/screens/home.dart'; // Import your home page
 
 class bottomnavbar extends StatefulWidget {
   const bottomnavbar({super.key});
@@ -14,6 +19,44 @@ class _bottomnavbarState extends State<bottomnavbar> {
     setState(() {
       _selectedIndex = index;
     });
+
+    // Handle navigation based on the selected index
+    switch (index) {
+      case 0: // Home
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => home()),
+        );
+        break;
+      case 1: // Library
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => bookintro()),
+        );
+        break;
+      case 2: // Favorites
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => likebooks()),
+        );
+        break;
+      case 3: // Cart
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => cart()),
+        );
+        break;
+      case 4: // Profile
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => userprofile()),
+        );
+        break;
+    }
   }
 
   @override
@@ -43,6 +86,10 @@ class _bottomnavbarState extends State<bottomnavbar> {
         BottomNavigationBarItem(
           icon: Icon(Icons.shopping_bag),
           label: "Cart",
+        ),
+        BottomNavigationBarItem(
+          icon: Icon(Icons.person),
+          label: "Profile",
         ),
       ],
     );
