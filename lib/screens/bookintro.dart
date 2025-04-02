@@ -1,7 +1,6 @@
 import 'package:cosmic_pages/screens/BottomNavBar.dart';
-import 'package:cosmic_pages/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+
 
 class bookintro extends StatefulWidget {
   const bookintro({super.key});

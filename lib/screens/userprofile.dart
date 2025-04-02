@@ -1,7 +1,5 @@
 import 'package:cosmic_pages/screens/BottomNavBar.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:cosmic_pages/screens/home.dart';
 
 class userprofile extends StatefulWidget {
   const userprofile({super.key});

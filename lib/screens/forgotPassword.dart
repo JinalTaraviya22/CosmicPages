@@ -1,6 +1,5 @@
-import 'package:cosmic_pages/screens/login.dart';
+
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class Forgotpassword extends StatefulWidget {
   const Forgotpassword({super.key});

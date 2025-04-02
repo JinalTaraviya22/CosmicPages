@@ -1,8 +1,6 @@
 ////flutter pub add file_picker  - command for install package
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:cosmic_pages/screens/home.dart';
 
 class authorbookup extends StatefulWidget {
   const authorbookup({super.key});

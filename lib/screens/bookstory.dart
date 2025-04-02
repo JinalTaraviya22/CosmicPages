@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:cosmic_pages/screens/home.dart';
-import 'package:get/get.dart';
 
 class bookstory extends StatefulWidget {
   const bookstory({super.key});
@@ -51,22 +49,20 @@ class _bookstoryState extends State<bookstory> {
                 ),
               ),
               SizedBox(height: 15),
-              Card(
-                elevation: 4,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black54),
+                  borderRadius: BorderRadius.circular(5),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(12.0),
-                  child: Text(
-                    "The infection comes as fever at night. If you take ill, watch the veins—the tributary of blood travelling down the arms. If they remain as they ever did, you have nothing to fear.\n\n"
-                    "If the blood darkens to an inky black, the infection has taken hold.\n\n"
-                    "The infection comes as fever at night.",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black54),
+                padding: const EdgeInsets.all(12.0),
+                child: Text(
+                  "The infection comes as fever at night. If you take ill, watch the veins—the tributary of blood travelling down the arms. If they remain as they ever did, you have nothing to fear.\n\n"
+                  "If the blood darkens to an inky black, the infection has taken hold.\n\n"
+                  "The infection comes as fever at night.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 15,
+                    color: Colors.black87,
                   ),
                 ),
               ),

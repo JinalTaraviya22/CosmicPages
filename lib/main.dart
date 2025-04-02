@@ -1,5 +1,4 @@
-import 'package:cosmic_pages/screens/publishedbooks.dart';
-
+import 'package:cosmic_pages/screens/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -9,7 +8,7 @@ main() => runApp(
         theme: ThemeData(
           fontFamily: 'OpenSans',
         ),
-        home: publishedbooks(),
+        home: cart(),
       ),
     );
 

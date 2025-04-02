@@ -1,5 +1,5 @@
 import 'package:cosmic_pages/screens/login.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

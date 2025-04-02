@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
+
 
 class Search extends StatefulWidget {
   const Search({super.key});

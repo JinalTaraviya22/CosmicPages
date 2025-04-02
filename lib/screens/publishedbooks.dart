@@ -1,6 +1,4 @@
-import 'package:cosmic_pages/screens/home.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:cosmic_pages/screens/bottomnavbar.dart';
 
 class publishedbooks extends StatefulWidget {
