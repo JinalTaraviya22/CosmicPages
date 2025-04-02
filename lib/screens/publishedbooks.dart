@@ -1,6 +1,7 @@
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:cosmic_pages/screens/bottomnavbar.dart';
 
 class publishedbooks extends StatefulWidget {
   const publishedbooks({super.key});
@@ -14,10 +15,11 @@ class _publishedbookyState extends State<publishedbooks> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 80,
+        automaticallyImplyLeading: false,
         leading: IconButton(
-          onPressed: () {
-            Get.to(home());
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [
@@ -355,6 +357,7 @@ class _publishedbookyState extends State<publishedbooks> {
           ),
         ),
       ),
+      bottomNavigationBar: const bottomnavbar(),
     );
   }
 }

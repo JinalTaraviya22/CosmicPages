@@ -15,9 +15,7 @@ class _ratingreviewState extends State<ratingreview> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Get.to(welcome());
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [

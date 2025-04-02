@@ -24,9 +24,9 @@ class _RegisterState extends State<Register> {
                 // SizedBox(
                 //   height: 20,
                 // ),
-                IconButton(onPressed: () {
-                  Get.to(welcome());
-                }, icon: Icon(Icons.arrow_back_ios)),
+                IconButton(
+                    onPressed: () => Navigator.pop(context),
+                    icon: Icon(Icons.arrow_back_ios)),
                 SizedBox(
                   height: 30,
                 ),
@@ -100,7 +100,10 @@ class _RegisterState extends State<Register> {
                       groupValue: null,
                     ),
                     Text('Author'),
-                    Radio(value: 'Reader', groupValue: null, onChanged: (value) {}),
+                    Radio(
+                        value: 'Reader',
+                        groupValue: null,
+                        onChanged: (value) {}),
                     Text('Reader'),
                   ],
                 ),

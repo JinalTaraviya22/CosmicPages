@@ -23,9 +23,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
               //   height: 20,
               // ),
               IconButton(
-                  onPressed: () {
-                    Get.to(login());
-                  },
+                  onPressed: () => Navigator.pop(context),
                   icon: Icon(Icons.arrow_back_ios)),
               SizedBox(
                 height: 30,

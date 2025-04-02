@@ -1,3 +1,4 @@
+import 'package:cosmic_pages/screens/BottomNavBar.dart';
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,9 +16,7 @@ class _orderhistoryState extends State<orderhistory> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Get.to(home());
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [
@@ -405,6 +404,7 @@ class _orderhistoryState extends State<orderhistory> {
           ),
         ),
       ),
+      bottomNavigationBar: const bottomnavbar(),
     );
   }
 }
