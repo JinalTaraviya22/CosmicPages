@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
-import 'package:get/get.dart';
+
 
 class ratingreview extends StatefulWidget {
   const ratingreview({super.key});
@@ -15,9 +14,7 @@ class _ratingreviewState extends State<ratingreview> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Get.to(welcome());
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [
@@ -42,11 +39,9 @@ class _ratingreviewState extends State<ratingreview> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Center(
-                child: Text(
-                  "Rate this Book",
-                  style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
-                ),
+              Text(
+                "Rate this Book",
+                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 10),
               Center(

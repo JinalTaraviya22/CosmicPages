@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
+
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -17,9 +16,7 @@ class _SearchState extends State<Search> {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {
-            Get.to(welcome());
-          },
+          onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
         ),
         actions: [

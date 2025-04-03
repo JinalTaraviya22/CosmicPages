@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class author extends StatefulWidget {
   const author({super.key});
@@ -34,7 +33,7 @@ class _authorState extends State<author> {
                   top: 20,
                   left: 10,
                   child: IconButton(
-                    onPressed: () {},
+                    onPressed: () => Navigator.pop(context),
                     icon: Icon(Icons.arrow_back_ios, color: Colors.white),
                   ),
                 ),

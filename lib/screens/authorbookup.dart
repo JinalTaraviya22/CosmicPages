@@ -1,25 +1,28 @@
-//flutter pub add file_picker  - command for install package
-
-import 'package:cosmic_pages/screens/BottomNavBar.dart';
+////flutter pub add file_picker  - command for install package
 import 'package:flutter/material.dart';
 import 'package:file_picker/file_picker.dart';
 
-class profilesettings extends StatefulWidget {
-  const profilesettings({super.key});
+class authorbookup extends StatefulWidget {
+  const authorbookup({super.key});
 
   @override
-  State<profilesettings> createState() => _profilesettingsState();
+  State<authorbookup> createState() => _authorbookupState();
 }
 
-class _profilesettingsState extends State<profilesettings> {
+class _authorbookupState extends State<authorbookup> {
   String? fileName;
+  String? coverName;
 
-  Future<void> pickFile() async {
+  Future<void> pickFile({required bool isCover}) async {
     FilePickerResult? result = await FilePicker.platform.pickFiles();
 
     if (result != null) {
       setState(() {
-        fileName = result.files.single.name; // Get the file name
+        if (isCover) {
+          coverName = result.files.single.name;
+        } else {
+          fileName = result.files.single.name;
+        }
       });
     }
   }
@@ -56,13 +59,13 @@ class _profilesettingsState extends State<profilesettings> {
             children: [
               SizedBox(height: 20),
               Text(
-                "Profile Settings",
+                "Book InFo",
                 style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                  labelText: 'Username',
+                  labelText: 'Name',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
                   border: OutlineInputBorder(
@@ -73,11 +76,51 @@ class _profilesettingsState extends State<profilesettings> {
               SizedBox(height: 20),
               TextField(
                 decoration: InputDecoration(
-                  labelText: 'Email',
+                  labelText: 'Price',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Genres',
+                  filled: true,
+                  fillColor: Color(0xFFDEDEDE),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Book Discription',
+                  filled: true,
+                  fillColor: Color(0xFFDEDEDE),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                readOnly: true,
+                controller: TextEditingController(
+                    text: coverName ?? "No File Selected"),
+                decoration: InputDecoration(
+                  labelText: 'Cover Upload',
+                  filled: true,
+                  fillColor: Color(0xFFDEDEDE),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.attach_file),
+                    onPressed: () => pickFile(isCover: true),
                   ),
                 ),
               ),
@@ -95,45 +138,7 @@ class _profilesettingsState extends State<profilesettings> {
                   ),
                   suffixIcon: IconButton(
                     icon: Icon(Icons.attach_file),
-                    onPressed: pickFile,
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Author Description',
-                  filled: true,
-                  fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              Text(
-                "Change Password",
-                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Password',
-                  filled: true,
-                  fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-              ),
-              SizedBox(height: 20),
-              TextField(
-                decoration: InputDecoration(
-                  labelText: 'Confirm Password',
-                  filled: true,
-                  fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(8),
+                    onPressed: () => pickFile(isCover: false),
                   ),
                 ),
               ),
@@ -161,7 +166,6 @@ class _profilesettingsState extends State<profilesettings> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
     );
   }
 }

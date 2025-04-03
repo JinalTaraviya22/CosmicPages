@@ -1,6 +1,5 @@
 import 'package:cosmic_pages/screens/forgotPassword.dart';
 import 'package:cosmic_pages/screens/register.dart';
-import 'package:cosmic_pages/screens/welcome.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -25,9 +24,7 @@ class _loginState extends State<login> {
               //   height: 20,
               // ),
               IconButton(
-                  onPressed: () {
-                    Get.to(welcome());
-                  },
+                  onPressed: () => Navigator.pop(context),
                   icon: Icon(Icons.arrow_back_ios)),
               SizedBox(
                 height: 30,
