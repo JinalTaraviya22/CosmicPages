@@ -1,3 +1,4 @@
+import 'package:cosmic_pages/controller/user_auth.dart';
 import 'package:cosmic_pages/screens/bottomnavbar.dart';
 import 'package:flutter/material.dart';
 
@@ -13,39 +14,51 @@ class _homeState extends State<home> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            ClipRRect(
-              borderRadius: BorderRadius.circular(8),
-              child: Image.asset(
-                "assets/images/book1.png",
-                width: 30,
-                height: 30,
-                fit: BoxFit.cover,
+        elevation: 0,
+        toolbarHeight: 80,
+        automaticallyImplyLeading: false,
+        title: Padding(
+          padding: const EdgeInsets.only(top: 20),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: Image.asset(
+                  'assets/images/blah.png',
+                  width: 45,
+                  height: 45,
+                  fit: BoxFit.cover,
+                ),
               ),
-            ),
-          ],
+              Row(
+                children: [
+                  IconButton(
+                    icon: const Icon(Icons.search, color: Colors.black),
+                    iconSize: 30.0,
+                    onPressed: () {},
+                  ),
+                  PopupMenuButton(
+                    color: const Color.fromARGB(255, 37, 37, 37),
+                    onSelected: (String value) {
+                      if(value=='Logout'){
+                          final user = UserController.logout();
+                      }
+                    },
+                    itemBuilder: (BuildContext context) {
+                      return {'Edit Profile', 'Settings', 'Logout'}
+                          .map((String choice) => PopupMenuItem(
+                                value: choice,
+                                child: Text(choice, style: const TextStyle(color: Colors.white)),
+                              ))
+                          .toList();
+                    },
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(Icons.search),
-          ),
-          PopupMenuButton<String>(
-            onSelected: (value) {
-              print(value);
-            },
-            itemBuilder: (BuildContext context) {
-              return ['Edit Profile', 'Setting', 'Logout']
-                  .map((String choice) => PopupMenuItem<String>(
-                        value: choice,
-                        child: Text(choice),
-                      ))
-                  .toList();
-            },
-          ),
-        ],
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -220,7 +233,7 @@ class _homeState extends State<home> {
                     height: 80, // Set a fixed height
                     child: ListView(
                       scrollDirection: Axis.horizontal,
-                      padding: EdgeInsets.symmetric(horizontal: 19),
+                      // padding: EdgeInsets.symmetric(horizontal: 10),
                       children: [
                         // First Book
                         Container(

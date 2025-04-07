@@ -1,4 +1,5 @@
 import 'package:cosmic_pages/screens/dashboard.dart';
+import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/login.dart';
 
 import 'package:flutter/material.dart';
@@ -33,7 +34,7 @@ class _RegisterState extends State<Register> {
                 ),
                 Text(
                   'Get Started',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Color(0xFF31496F)),
                 ),
                 SizedBox(
                   height: 20,
@@ -113,12 +114,13 @@ class _RegisterState extends State<Register> {
                 ),
                 ElevatedButton(
                   onPressed: () {
-                    Get.off(Dashboard());
+                    // Get.off(home());
+                    Get.to(() => home());
                   },
                   style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8)),
-                    backgroundColor: Colors.black,
+                    backgroundColor: Color(0xFF31496F),
                   ),
                   child: SizedBox(
                     width: double.infinity,
@@ -149,9 +151,9 @@ class _RegisterState extends State<Register> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                // SizedBox(
+                //   height: 20,
+                // ),
               ],
             ),
           ),

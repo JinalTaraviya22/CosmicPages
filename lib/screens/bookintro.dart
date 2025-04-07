@@ -14,6 +14,8 @@ class _bookintroState extends State<bookintro> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        elevation: 0,
+        toolbarHeight: 80,
         leading: IconButton(
           onPressed: () => Navigator.pop(context),
           icon: Icon(Icons.arrow_back_ios),
@@ -40,13 +42,13 @@ class _bookintroState extends State<bookintro> {
             SizedBox(height: 20),
             Card(
               elevation: 15,
-              margin: EdgeInsets.symmetric(horizontal: 40),
+              margin: EdgeInsets.symmetric(horizontal: 30),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(18),
               ),
               color: Color.fromRGBO(49, 73, 111, 1),
               child: Padding(
-                padding: EdgeInsets.all(12),
+                padding: EdgeInsets.all(10),
                 child: Stack(
                   children: [
                     Column(
@@ -127,7 +129,7 @@ class _bookintroState extends State<bookintro> {
             ),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(15.0),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -144,7 +146,7 @@ class _bookintroState extends State<bookintro> {
             ),
             SizedBox(height: 20),
             Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(15.0),
               child: Text(
                 "A supremely practical and useful book. James Clear distils the most fundamental information about habit formation, so you can accomplish more by focusing on less. A supremely practical and useful book. James Clear distils the most fundamental information about habit formation, so you can accomplish more by focusing on less.",
                 style: TextStyle(fontSize: 20),
@@ -193,22 +195,26 @@ class _bookintroState extends State<bookintro> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: SizedBox(
-                width: double.infinity, // Full-width button
+                width: double.infinity,
                 child: ElevatedButton(
                   onPressed: () {
-                    // Add to cart functionality
+                    // Get.off(home());
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Color.fromRGBO(49, 73, 111, 1),
-                    padding: EdgeInsets.symmetric(vertical: 15),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(12),
-                    ),
+                        borderRadius: BorderRadius.circular(8)),
+                    backgroundColor: Colors.black,
                   ),
-                  child: Text(
-                    'Add to Card',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: 50,
+                    child: Center(
+                      child: Text(
+                        'Register',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
+                    ),
                   ),
                 ),
               ),

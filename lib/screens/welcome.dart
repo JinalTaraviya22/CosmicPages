@@ -65,7 +65,8 @@ class welcome extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Get.to(Register());
+                          // Get.to(Register());
+                          Get.to(() => Register());
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF31496F),
@@ -84,7 +85,7 @@ class welcome extends StatelessWidget {
                       ),
                       ElevatedButton(
                         onPressed: () {
-                          Get.to(login());
+                          Get.to(() => login());
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Color(0xFF31496F),
@@ -97,7 +98,7 @@ class welcome extends StatelessWidget {
                             width: 200,
                             height: 50,
                             child:
-                                Center(child: Text('Already have an account?',style: TextStyle(fontSize: 16),))),
+                                Center(child: Text('Already have an account?',style: TextStyle(fontSize: 16)))),
                       ),
                     ],
                   ),

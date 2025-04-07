@@ -1,5 +1,8 @@
+import 'package:cosmic_pages/controller/user_auth.dart';
 import 'package:cosmic_pages/screens/forgotPassword.dart';
+import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/register.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -31,7 +34,10 @@ class _loginState extends State<login> {
               ),
               Text(
                 'Welcome Back!',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF31496F)),
               ),
               SizedBox(
                 height: 20,
@@ -93,7 +99,7 @@ class _loginState extends State<login> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
-                  backgroundColor: Colors.black,
+                  backgroundColor: Color(0xFF31496F),
                 ),
                 child: SizedBox(
                   width: double.infinity,
@@ -111,23 +117,47 @@ class _loginState extends State<login> {
                 height: 20,
               ),
               Center(
-                child: Column(
+                  child: GestureDetector(
+                onTap: () async {
+                  try {
+                    final user = await UserController.loginWithGoogle();
+                    if (user != null) {}
+                    // Navigator.push(context,MaterialPageRoute(builder: (context) => home()));
+                    Get.to(() => home());
+                  } on FirebaseAuthException catch (error) {
+                    print(error.message);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Something went wrong")));
+                  } catch (e) {
+                    print(e);
+                    ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text("Something went wrong !!!")));
+                  }
+                },
+                child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Or'),
-                    SizedBox(height: 10),
+                    Image.asset(
+                      "assets/images/googleLogo.png",
+                      width: 30,
+                      height: 30,
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
                     Text(
                       'Login with Google',
                       style: TextStyle(fontSize: 16),
                     ),
                   ],
                 ),
-              ),
+              )),
               Spacer(),
               Center(
                 child: TextButton(
                   onPressed: () {
-                    Get.to(Register());
+                    // Get.to(Register());
+                    Get.to(() => Register());
                   },
                   style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
