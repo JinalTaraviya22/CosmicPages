@@ -41,7 +41,7 @@ class _likebooksState extends State<likebooks> {
             alignment: Alignment.centerLeft,
             padding: EdgeInsets.symmetric(horizontal: 16),
             child: Text(
-              "Like Books",
+              "Liked Books",
               style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
             ),
           ),
@@ -53,14 +53,14 @@ class _likebooksState extends State<likebooks> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   crossAxisSpacing: 5, // Reduced spacing
-                  mainAxisSpacing: 5, // Reduced vertical spacing
+                  mainAxisSpacing: 0, // Reduced vertical spacing
                   childAspectRatio: 0.6, // Adjusted for better image scaling
                 ),
                 children: [
                   // Book 1
                   Center(
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
                           "assets/images/book1.png",
@@ -86,7 +86,7 @@ class _likebooksState extends State<likebooks> {
                   // Book 2
                   Center(
                     child: Column(
-                      mainAxisSize: MainAxisSize.max,
+                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Image.asset(
                           "assets/images/book2.png",

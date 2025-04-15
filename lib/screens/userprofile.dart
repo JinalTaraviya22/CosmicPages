@@ -1,5 +1,10 @@
 import 'package:cosmic_pages/screens/BottomNavBar.dart';
+import 'package:cosmic_pages/screens/authorbookup.dart';
+import 'package:cosmic_pages/screens/orderhistory.dart';
+import 'package:cosmic_pages/screens/profilesettings.dart';
+import 'package:cosmic_pages/screens/publishedbooks.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class userprofile extends StatefulWidget {
   const userprofile({super.key});
@@ -97,7 +102,9 @@ class _userprofileState extends State<userprofile> {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(orderhistory());
+                      },
                     ),
                     Divider(
                         color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
@@ -122,7 +129,9 @@ class _userprofileState extends State<userprofile> {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(profilesettings());
+                      },
                     ),
                     Divider(
                         color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
@@ -197,7 +206,36 @@ class _userprofileState extends State<userprofile> {
                         color: Colors.white,
                         size: 16,
                       ),
-                      onTap: () {},
+                      onTap: () {
+                        Get.to(publishedbooks());
+                      },
+                    ),
+                     Divider(
+                        color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
+                        thickness: 1,
+                        height: 1,
+                        indent: 15,
+                        endIndent: 15),
+                    ListTile(
+                      leading: Container(
+                        width: 40,
+                        height: 40,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
+                          shape: BoxShape.circle,
+                        ),
+                        child: Icon(Icons.add_circle_outline, color: Colors.white),
+                      ),
+                      title: Text("Author Book Upload",
+                          style: TextStyle(color: Colors.white)),
+                      trailing: Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        size: 16,
+                      ),
+                      onTap: () {
+                        Get.to(authorbookup());
+                      },
                     ),
                   ],
                 ),

@@ -65,7 +65,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'Username',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -76,7 +76,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'Email',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -90,7 +90,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'File Upload',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   suffixIcon: IconButton(
@@ -105,7 +105,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'Author Description',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -121,7 +121,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'Password',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -132,7 +132,7 @@ class _profilesettingsState extends State<profilesettings> {
                   labelText: 'Confirm Password',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),

@@ -53,7 +53,7 @@ class _orderhistoryState extends State<orderhistory> {
                     child: Image.asset(
                       "assets/images/p1.png",
                       width: 140,
-                      height: 120,
+                      height: 140,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -66,10 +66,6 @@ class _orderhistoryState extends State<orderhistory> {
                           "Author Name",
                           style: TextStyle(
                               fontSize: 18, fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          "angel@gmail.com",
-                          style: TextStyle(fontSize: 16),
                         ),
                         Text(
                           "\$120",
@@ -102,7 +98,7 @@ class _orderhistoryState extends State<orderhistory> {
                           print(value);
                         },
                         itemBuilder: (BuildContext context) {
-                          return ['Edit Profile', 'Setting', 'Logout']
+                          return ['View']
                               .map((String choice) => PopupMenuItem<String>(
                                     value: choice,
                                     child: Text(choice),
@@ -124,7 +120,7 @@ class _orderhistoryState extends State<orderhistory> {
                     child: Image.asset(
                       "assets/images/p1.png",
                       width: 140,
-                      height: 120,
+                      height: 140,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -195,7 +191,7 @@ class _orderhistoryState extends State<orderhistory> {
                     child: Image.asset(
                       "assets/images/p3.png",
                       width: 140,
-                      height: 120,
+                      height: 140,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -266,7 +262,7 @@ class _orderhistoryState extends State<orderhistory> {
                     child: Image.asset(
                       "assets/images/p1.png",
                       width: 140,
-                      height: 120,
+                      height: 140,
                       fit: BoxFit.cover,
                     ),
                   ),

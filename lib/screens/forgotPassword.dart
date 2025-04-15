@@ -29,7 +29,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
               ),
               Text(
                 'Forgot Password',
-                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold,color: Color(0xFF31496F)),
               ),
               SizedBox(
                 height: 20,
@@ -51,7 +51,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),
-                  backgroundColor: Colors.black,
+                   backgroundColor: Color(0xFF31496F),
                 ),
                 child: SizedBox(
                   width: double.infinity,

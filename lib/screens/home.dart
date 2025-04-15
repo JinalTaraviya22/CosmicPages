@@ -1,6 +1,8 @@
 import 'package:cosmic_pages/controller/user_auth.dart';
 import 'package:cosmic_pages/screens/bottomnavbar.dart';
+import 'package:cosmic_pages/screens/search.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -36,7 +38,9 @@ class _homeState extends State<home> {
                   IconButton(
                     icon: const Icon(Icons.search, color: Colors.black),
                     iconSize: 30.0,
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(Search());
+                    },
                   ),
                   PopupMenuButton(
                     color: const Color.fromARGB(255, 37, 37, 37),

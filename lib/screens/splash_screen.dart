@@ -14,7 +14,7 @@ class _splash_screenState extends State<splash_screen> {
   void initState() {
     super.initState();
     Future.delayed(Duration(seconds: 5),(){
-      Get.to(welcome());
+      Get.off(welcome());
     });
   }
   @override

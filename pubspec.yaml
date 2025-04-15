@@ -40,6 +40,14 @@ dependencies:
   firebase_auth: ^5.5.2
   google_sign_in: ^6.3.0
   fluttertoast: ^8.2.12
+  flutter_launcher_icons: ^0.14.3
+  flutter_native_splash: ^2.4.4
+
+flutter_icons:
+  image_path: 'assets/images/AppIcon.png'
+  adaptive_icon_background: "#F8F7F3"
+  android: true
+  ios: true
 
 dev_dependencies:
   flutter_test:
@@ -118,3 +126,12 @@ flutter:
   
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+# flutter_native_splash:
+#   color: "#F8F7F3" 
+#   image: assets/images/blackLogo.png 
+#   android: true
+#   ios: true
+#   fullscreen: true
+#   android_gravity: center
+#   ios_content_mode: center

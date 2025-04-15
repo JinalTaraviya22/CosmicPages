@@ -48,7 +48,7 @@ class _SearchState extends State<Search> {
                     labelText: 'Search here',
                     filled: true,
                     fillColor: Color(0xFFDEDEDE),
-                    border: OutlineInputBorder(
+                    border: UnderlineInputBorder(
                       borderRadius: BorderRadius.circular(15),
                     ),
                     suffixIcon: IconButton(
@@ -65,13 +65,6 @@ class _SearchState extends State<Search> {
                       "Categories",
                       style:
                           TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "View All >",
-                        style: TextStyle(color: Colors.blue),
-                      ),
                     ),
                   ],
                 ),

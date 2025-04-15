@@ -68,7 +68,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'Name',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -79,7 +79,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'Price',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -90,7 +90,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'Genres',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -101,7 +101,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'Book Discription',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                 ),
@@ -115,7 +115,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'Cover Upload',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   suffixIcon: IconButton(
@@ -133,7 +133,7 @@ class _authorbookupState extends State<authorbookup> {
                   labelText: 'File Upload',
                   filled: true,
                   fillColor: Color(0xFFDEDEDE),
-                  border: OutlineInputBorder(
+                  border: UnderlineInputBorder(
                     borderRadius: BorderRadius.circular(8),
                   ),
                   suffixIcon: IconButton(
