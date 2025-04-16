@@ -3,7 +3,7 @@ import 'package:cosmic_pages/screens/cart.dart';
 import 'package:cosmic_pages/screens/likebooks.dart';
 import 'package:cosmic_pages/screens/userprofile.dart';
 import 'package:flutter/material.dart';
-import 'package:cosmic_pages/screens/home.dart'; // Import your home page
+import 'package:cosmic_pages/screens/home.dart';
 
 class bottomnavbar extends StatefulWidget {
   const bottomnavbar({super.key});
@@ -61,37 +61,91 @@ class _bottomnavbarState extends State<bottomnavbar> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBar(
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
-      type: BottomNavigationBarType.fixed, // Ensures equal spacing
-      selectedItemColor:
-          Color.fromRGBO(7, 45, 107, 1), // Change selected icon color
-      unselectedItemColor: Colors.grey, // Change unselected icon color
-      showSelectedLabels: false, // Hide text labels
-      showUnselectedLabels: false, // Hide text labels
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home),
-          label: "Home",
+    return Container(
+      decoration: BoxDecoration(
+        // color: Colors.white,
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.book),
-          label: "Library",
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 20,
+            offset: const Offset(0, -5),
+          ),
+        ],
+      ),
+      child: ClipRRect(
+        borderRadius: const BorderRadius.only(
+          topLeft: Radius.circular(30),
+          topRight: Radius.circular(30),
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.favorite),
-          label: "Favorites",
+        child: BottomNavigationBar(
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed,
+          // backgroundColor: Colors.white,
+          selectedItemColor:
+              const Color.fromRGBO(49, 73, 111, 1), // Cosmic blue
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: const IconThemeData(
+              size: 27, color: const Color.fromRGBO(49, 73, 111, 1)),
+          unselectedIconTheme: const IconThemeData(size: 23),
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          elevation: 10,
+          items: [
+            _buildNavItem(Icons.home, 0),
+            _buildNavItem(Icons.book, 1),
+            _buildNavItem(Icons.favorite, 2),
+            _buildNavItem(Icons.shopping_bag, 3),
+            _buildNavItem(Icons.person, 4),
+          ],
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.shopping_bag),
-          label: "Cart",
+      ),
+    );
+  }
+
+  // BottomNavigationBarItem _buildNavItem(IconData icon, int index) {
+  //   bool isSelected = _selectedIndex == index;
+
+  //   return BottomNavigationBarItem(
+  //     icon: AnimatedContainer(
+  //       duration: const Duration(milliseconds: 300),
+  //       padding: const EdgeInsets.all(8),
+  //       decoration: isSelected
+  //           ? BoxDecoration(
+  //               color: const Color.fromRGBO(231, 234, 250, 1),
+  //               borderRadius: BorderRadius.circular(12),
+  //             )
+  //           : const BoxDecoration(),
+  //       child: Icon(icon),
+  //     ),
+  //     label: '',
+  //   );
+  // }
+  BottomNavigationBarItem _buildNavItem(IconData icon, int index) {
+    bool isSelected = _selectedIndex == index;
+
+    return BottomNavigationBarItem(
+      icon: AnimatedContainer(
+        duration: const Duration(milliseconds: 300),
+        padding: const EdgeInsets.all(8),
+        decoration: isSelected
+            ? BoxDecoration(
+                color: const Color.fromRGBO(231, 234, 250, 1),
+                borderRadius: BorderRadius.circular(12),
+              )
+            : const BoxDecoration(),
+        child: Icon(
+          icon,
+          color: isSelected
+              ? const Color.fromRGBO(49, 73, 111, 1)
+              : Colors.grey, // Use unselected color here
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person),
-          label: "Profile",
-        ),
-      ],
+      ),
+      label: '',
     );
   }
 }
