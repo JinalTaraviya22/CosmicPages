@@ -398,7 +398,7 @@ class _orderhistoryState extends State<orderhistory> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: const bottomnavbar(),
     );
   }
 }

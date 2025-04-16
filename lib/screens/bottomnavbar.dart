@@ -4,57 +4,65 @@ import 'package:cosmic_pages/screens/likebooks.dart';
 import 'package:cosmic_pages/screens/userprofile.dart';
 import 'package:flutter/material.dart';
 import 'package:cosmic_pages/screens/home.dart';
+import 'package:get/get.dart';
 
-class bottomnavbar extends StatefulWidget {
-  const bottomnavbar({super.key});
+// Create a persistent controller that will be accessible globally
+class NavIndexController extends GetxController {
+  static NavIndexController get to => Get.find();
+  final RxInt selectedIndex = 0.obs;
 
-  @override
-  State<bottomnavbar> createState() => _bottomnavbarState();
+  void changeIndex(int index) {
+    selectedIndex.value = index;
+  }
 }
 
-class _bottomnavbarState extends State<bottomnavbar> {
-  int _selectedIndex = 0;
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+
+  @override
+  State<BottomNavBar> createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  // List of icons for the navigation bar
+  final List<IconData> _icons = [
+    Icons.home,
+    Icons.book,
+    Icons.favorite,
+    Icons.shopping_bag,
+    Icons.person,
+  ];
+
+  @override
+  void initState() {
+    super.initState();
+    // Check if controller is already registered before putting it
+    if (!Get.isRegistered<NavIndexController>()) {
+      Get.put(NavIndexController(), permanent: true);
+    }
+  }
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    // Get the controller and change the index
+    final navController = Get.find<NavIndexController>();
+    navController.changeIndex(index);
 
-    // Handle navigation based on the selected index
+    // Navigate to the correct screen
     switch (index) {
       case 0: // Home
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => home()),
-        );
+        Get.off(() => const home(), preventDuplicates: false);
         break;
       case 1: // Library
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => bookintro()),
-        );
+        Get.off(() => const bookintro(), preventDuplicates: false);
         break;
       case 2: // Favorites
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => likebooks()),
-        );
+        Get.off(() => const likebooks(), preventDuplicates: false);
         break;
       case 3: // Cart
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => cart()),
-        );
+        Get.off(() => const cart(), preventDuplicates: false);
         break;
       case 4: // Profile
-
-        Navigator.pushReplacement(
-          context,
-          MaterialPageRoute(builder: (context) => userprofile()),
-        );
+        Get.off(() => const userprofile(), preventDuplicates: false);
         break;
     }
   }
@@ -63,7 +71,6 @@ class _bottomnavbarState extends State<bottomnavbar> {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        // color: Colors.white,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
@@ -81,52 +88,27 @@ class _bottomnavbarState extends State<bottomnavbar> {
           topLeft: Radius.circular(30),
           topRight: Radius.circular(30),
         ),
-        child: BottomNavigationBar(
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-          type: BottomNavigationBarType.fixed,
-          // backgroundColor: Colors.white,
-          selectedItemColor:
-              const Color.fromRGBO(49, 73, 111, 1), // Cosmic blue
-          unselectedItemColor: Colors.grey,
-          selectedIconTheme: const IconThemeData(
-              size: 27, color: const Color.fromRGBO(49, 73, 111, 1)),
-          unselectedIconTheme: const IconThemeData(size: 23),
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          elevation: 10,
-          items: [
-            _buildNavItem(Icons.home, 0),
-            _buildNavItem(Icons.book, 1),
-            _buildNavItem(Icons.favorite, 2),
-            _buildNavItem(Icons.shopping_bag, 3),
-            _buildNavItem(Icons.person, 4),
-          ],
-        ),
+        child: Obx(() {
+          final navController = Get.find<NavIndexController>();
+          return BottomNavigationBar(
+            currentIndex: navController.selectedIndex.value,
+            onTap: _onItemTapped,
+            type: BottomNavigationBarType.fixed,
+            selectedItemColor: const Color.fromRGBO(49, 73, 111, 1),
+            unselectedItemColor: Colors.grey,
+            showSelectedLabels: false,
+            showUnselectedLabels: false,
+            elevation: 10,
+            items: List.generate(5, (index) => _buildNavItem(index)),
+          );
+        }),
       ),
     );
   }
 
-  // BottomNavigationBarItem _buildNavItem(IconData icon, int index) {
-  //   bool isSelected = _selectedIndex == index;
-
-  //   return BottomNavigationBarItem(
-  //     icon: AnimatedContainer(
-  //       duration: const Duration(milliseconds: 300),
-  //       padding: const EdgeInsets.all(8),
-  //       decoration: isSelected
-  //           ? BoxDecoration(
-  //               color: const Color.fromRGBO(231, 234, 250, 1),
-  //               borderRadius: BorderRadius.circular(12),
-  //             )
-  //           : const BoxDecoration(),
-  //       child: Icon(icon),
-  //     ),
-  //     label: '',
-  //   );
-  // }
-  BottomNavigationBarItem _buildNavItem(IconData icon, int index) {
-    bool isSelected = _selectedIndex == index;
+  BottomNavigationBarItem _buildNavItem(int index) {
+    final navController = Get.find<NavIndexController>();
+    bool isSelected = navController.selectedIndex.value == index;
 
     return BottomNavigationBarItem(
       icon: AnimatedContainer(
@@ -139,10 +121,10 @@ class _bottomnavbarState extends State<bottomnavbar> {
               )
             : const BoxDecoration(),
         child: Icon(
-          icon,
-          color: isSelected
-              ? const Color.fromRGBO(49, 73, 111, 1)
-              : Colors.grey, // Use unselected color here
+          _icons[index],
+          size: isSelected ? 27 : 23,
+          color:
+              isSelected ? const Color.fromRGBO(49, 73, 111, 1) : Colors.grey,
         ),
       ),
       label: '',

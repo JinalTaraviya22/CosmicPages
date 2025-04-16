@@ -393,7 +393,7 @@ class _bookintroState extends State<bookintro> {
           ],
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: const bottomnavbar(),
     );
   }
 

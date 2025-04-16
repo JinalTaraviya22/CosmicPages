@@ -261,7 +261,7 @@ class _cartState extends State<cart> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: BottomNavBar(),
     );
   }
 }

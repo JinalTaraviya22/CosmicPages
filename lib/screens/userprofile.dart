@@ -264,7 +264,7 @@ class _userprofileState extends State<userprofile> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: const bottomnavbar(),
     );
   }
 }

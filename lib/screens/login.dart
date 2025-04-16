@@ -1,4 +1,6 @@
 import 'package:cosmic_pages/controller/user_auth.dart';
+import 'package:cosmic_pages/screens/bottomnavbar.dart';
+import 'package:cosmic_pages/screens/dashboard_with_nav.dart';
 import 'package:cosmic_pages/screens/forgotPassword.dart';
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/register.dart';
@@ -107,7 +109,7 @@ class _loginState extends State<login> {
                     ),
                     ElevatedButton(
                       onPressed: () {
-                        Get.offAll(home());
+                        Get.to(DashboardWithNav());
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

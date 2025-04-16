@@ -1,5 +1,5 @@
-import 'package:cosmic_pages/screens/bottomnavbar.dart';
 import 'package:flutter/material.dart';
+
 
 class likebooks extends StatefulWidget {
   const likebooks({super.key});
@@ -190,7 +190,7 @@ class _likebooksState extends State<likebooks> {
           ),
         ],
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: bottomnavbar(),
     );
   }
 }

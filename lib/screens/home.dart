@@ -1,4 +1,5 @@
 import 'package:cosmic_pages/controller/user_auth.dart';
+import 'package:cosmic_pages/screens/BottomNavBar.dart';
 import 'package:cosmic_pages/screens/bottomnavbar.dart';
 import 'package:cosmic_pages/screens/search.dart';
 import 'package:flutter/material.dart';
@@ -529,7 +530,7 @@ class _homeState extends State<home> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: bottomnavbar(),
     );
   }
 }

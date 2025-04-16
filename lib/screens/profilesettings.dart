@@ -161,7 +161,7 @@ class _profilesettingsState extends State<profilesettings> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: const bottomnavbar(),
     );
   }
 }

@@ -13,7 +13,7 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  // Add variables to track the selected role
+  
   String? selectedRole;
 
   @override

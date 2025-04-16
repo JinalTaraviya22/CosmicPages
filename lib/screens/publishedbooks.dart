@@ -1,3 +1,4 @@
+import 'package:cosmic_pages/screens/BottomNavBar.dart';
 import 'package:flutter/material.dart';
 import 'package:cosmic_pages/screens/bottomnavbar.dart';
 
@@ -355,7 +356,7 @@ class _publishedbookyState extends State<publishedbooks> {
           ),
         ),
       ),
-      bottomNavigationBar: const bottomnavbar(),
+      // bottomNavigationBar: bottomnavbar(),
     );
   }
 }

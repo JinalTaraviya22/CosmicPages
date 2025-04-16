@@ -44,10 +44,12 @@ dependencies:
   flutter_native_splash: ^2.4.4
 
 flutter_icons:
-  image_path: 'assets/images/AppIcon.png'
-  adaptive_icon_background: "#F8F7F3"
   android: true
   ios: true
+  image_path: "assets/images/AppIcon.png"
+  adaptive_icon_background: "#F8F7F3"
+  # adaptive_icon_foreground: "assets/images/AppIcon.png"
+
 
 dev_dependencies:
   flutter_test:
