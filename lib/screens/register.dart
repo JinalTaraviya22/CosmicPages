@@ -1,6 +1,9 @@
 // import 'package:cosmic_pages/screens/dashboard.dart';
+import 'package:cosmic_pages/controller/snackbar_controller.dart';
+import 'package:cosmic_pages/screens/dashboard_with_nav.dart';
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/login.dart';
+import 'package:cosmic_pages/services/firebase_service.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -13,22 +16,30 @@ class Register extends StatefulWidget {
 }
 
 class _RegisterState extends State<Register> {
-  
+  final Snackbar _snackbar = Snackbar();
+
+  final FirebaseServices firebaseServices = FirebaseServices();
+
+  final TextEditingController nameController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final TextEditingController confirmPasswordController =
+      TextEditingController();
+
   String? selectedRole;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        // Using SingleChildScrollView for the entire content
         child: SingleChildScrollView(
           physics: const ClampingScrollPhysics(),
           // This allows content to fill the screen height even when content is shorter
           child: ConstrainedBox(
             constraints: BoxConstraints(
-              minHeight: MediaQuery.of(context).size.height - 
-                         MediaQuery.of(context).padding.top - 
-                         MediaQuery.of(context).padding.bottom,
+              minHeight: MediaQuery.of(context).size.height -
+                  MediaQuery.of(context).padding.top -
+                  MediaQuery.of(context).padding.bottom,
             ),
             child: IntrinsicHeight(
               child: Padding(
@@ -57,6 +68,7 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(height: 10),
                     TextField(
+                      controller: nameController,
                       decoration: InputDecoration(
                         labelText: 'Username',
                         filled: true,
@@ -68,6 +80,7 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(height: 10),
                     TextField(
+                      controller: emailController,
                       decoration: InputDecoration(
                         labelText: 'Email Id',
                         filled: true,
@@ -79,6 +92,7 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(height: 10),
                     TextField(
+                      controller: passwordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Password',
@@ -91,6 +105,7 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(height: 10),
                     TextField(
+                      controller: confirmPasswordController,
                       obscureText: true,
                       decoration: InputDecoration(
                         labelText: 'Confirm Password',
@@ -128,8 +143,51 @@ class _RegisterState extends State<Register> {
                     ),
                     SizedBox(height: 20),
                     ElevatedButton(
-                      onPressed: () {
-                        Get.offAll(() => home());
+                      onPressed: () async {
+                        // Get.to(DashboardWithNav());
+                        final name = nameController.text.trim();
+                        final email = emailController.text.trim();
+                        final password = passwordController.text;
+                        final confirmPassword = confirmPasswordController.text;
+
+                        if (name.isEmpty ||
+                            email.isEmpty ||
+                            password.isEmpty ||
+                            confirmPassword.isEmpty ||
+                            selectedRole == null) {
+                          // Get.snackbar("Error", "All fields are required");
+                          _snackbar.showCustomSnackBar(
+                            context: context,
+                            message: "All fields are required",
+                            isSuccess: false,
+                          );
+
+                          return;
+                        }
+                        if (password != confirmPassword) {
+                          // Get.snackbar("Error", "Passwords Do Not Match");
+                          _snackbar.showCustomSnackBar(
+                            context: context,
+                            message: "Passwords do not match",
+                            isSuccess: false,
+                          );
+
+                          return;
+                        }
+                        await firebaseServices.addUser(
+                            name, email, password, selectedRole!);
+
+                        _snackbar.showCustomSnackBar(
+                          context: context,
+                          message: "Registered successfully! Please Login.",
+                          isSuccess: true,
+                        );
+
+                        Future.delayed(Duration(seconds: 2), () {
+                          Get.to(() => login());
+                        });
+
+                        // Get.to(DashboardWithNav());
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(
@@ -149,11 +207,8 @@ class _RegisterState extends State<Register> {
                         ),
                       ),
                     ),
-                    
-                    // This Spacer pushes the login text to the bottom
+
                     Spacer(),
-                    
-                    // Login link at bottom
                     Center(
                       child: TextButton(
                         onPressed: () {
