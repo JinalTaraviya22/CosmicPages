@@ -1,10 +1,14 @@
+import 'package:cosmic_pages/controller/user_auth.dart';
 import 'package:cosmic_pages/screens/BottomNavBar.dart';
 import 'package:cosmic_pages/screens/authorbookup.dart';
+import 'package:cosmic_pages/screens/login.dart';
 import 'package:cosmic_pages/screens/orderhistory.dart';
 import 'package:cosmic_pages/screens/profilesettings.dart';
 import 'package:cosmic_pages/screens/publishedbooks.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import '../controller/snackbar_controller.dart';
 
 class userprofile extends StatefulWidget {
   const userprofile({super.key});
@@ -14,6 +18,7 @@ class userprofile extends StatefulWidget {
 }
 
 class _userprofileState extends State<userprofile> {
+   final Snackbar _snackbar = Snackbar();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -56,7 +61,7 @@ class _userprofileState extends State<userprofile> {
                     child: Image.asset(
                       "assets/images/user1.png",
                       width: 120,
-                      height: 110,
+                      height: 120,
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -210,7 +215,7 @@ class _userprofileState extends State<userprofile> {
                         Get.to(publishedbooks());
                       },
                     ),
-                     Divider(
+                    Divider(
                         color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.3),
                         thickness: 1,
                         height: 1,
@@ -224,7 +229,8 @@ class _userprofileState extends State<userprofile> {
                           color: Color.fromRGBO(7, 45, 107, 1).withOpacity(0.2),
                           shape: BoxShape.circle,
                         ),
-                        child: Icon(Icons.add_circle_outline, color: Colors.white),
+                        child:
+                            Icon(Icons.add_circle_outline, color: Colors.white),
                       ),
                       title: Text("Author Book Upload",
                           style: TextStyle(color: Colors.white)),
@@ -242,7 +248,26 @@ class _userprofileState extends State<userprofile> {
               ),
               SizedBox(height: 70),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () async {
+                  try {
+                    await UserController.logout();
+                    _snackbar.showCustomSnackBar(
+                      context: context,
+                      message: "Logged out successfully",
+                      isSuccess: true,
+                    );
+
+                    // Navigate to login screen
+                    Get.offAll(() =>
+                        login());
+                  } catch (e) {
+                    _snackbar.showCustomSnackBar(
+                      context: context,
+                      message: "Failed to logout: ${e.toString()}",
+                      isSuccess: false,
+                    );
+                  }
+                },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),

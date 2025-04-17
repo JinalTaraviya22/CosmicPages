@@ -4,6 +4,7 @@ import 'package:cosmic_pages/screens/dashboard_with_nav.dart';
 import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/login.dart';
 import 'package:cosmic_pages/services/firebase_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -174,20 +175,40 @@ class _RegisterState extends State<Register> {
 
                           return;
                         }
-                        await firebaseServices.addUser(
-                            name, email, password, selectedRole!);
+                        try {
+                          // register in both Firebase Auth and Firestore
+                          final user = await firebaseServices.registerUser(
+                              name, email, password, selectedRole!);
 
-                        _snackbar.showCustomSnackBar(
-                          context: context,
-                          message: "Registered successfully! Please Login.",
-                          isSuccess: true,
-                        );
+                          if (user != null) {
+                            _snackbar.showCustomSnackBar(
+                              context: context,
+                              message: "Registered successfully! Please Login.",
+                              isSuccess: true,
+                            );
 
-                        Future.delayed(Duration(seconds: 2), () {
-                          Get.to(() => login());
-                        });
+                            Future.delayed(Duration(seconds: 2), () {
+                              Get.to(() => login());
+                            });
+                          }
+                        } catch (e) {
+                          String errorMessage = "Registration failed";
+                          if (e is FirebaseAuthException) {
+                            if (e.code == 'email-already-in-use') {
+                              errorMessage = "Email is already registered";
+                            } else if (e.code == 'weak-password') {
+                              errorMessage = "Password is too weak";
+                            } else if (e.code == 'invalid-email') {
+                              errorMessage = "Invalid email format";
+                            }
+                          }
 
-                        // Get.to(DashboardWithNav());
+                          _snackbar.showCustomSnackBar(
+                            context: context,
+                            message: errorMessage,
+                            isSuccess: false,
+                          );
+                        }
                       },
                       style: ElevatedButton.styleFrom(
                         shape: RoundedRectangleBorder(

@@ -47,7 +47,7 @@ class _homeState extends State<home> {
                     color: const Color.fromARGB(255, 37, 37, 37),
                     onSelected: (String value) {
                       if(value=='Logout'){
-                          final user = UserController.logout();
+                          // final user = UserController.logout();
                       }
                     },
                     itemBuilder: (BuildContext context) {
