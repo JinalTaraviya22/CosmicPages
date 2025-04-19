@@ -37,6 +37,23 @@ class FirebaseServices {
       throw e;
     }
   }
+
+  Future<String?> sendPasswordResetEmail(String email) async {
+    try {
+      await _auth.sendPasswordResetEmail(email: email);
+      return null; // null means success
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return 'No user found for that email.';
+      } else if (e.code == 'invalid-email') {
+        return 'Invalid email format.';
+      } else {
+        return 'Something went wrong. Please try again.';
+      }
+    } catch (e) {
+      return 'An unexpected error occurred.';
+    }
+  }
   
   // Keep the original method for backward compatibility if needed
   Future<void> addUser(String name, String email, String password, String role) async {

@@ -1,5 +1,8 @@
 
+import 'package:cosmic_pages/screens/login.dart';
+import 'package:cosmic_pages/services/firebase_service.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class Forgotpassword extends StatefulWidget {
   const Forgotpassword({super.key});
@@ -9,6 +12,36 @@ class Forgotpassword extends StatefulWidget {
 }
 
 class _ForgotpasswordState extends State<Forgotpassword> {
+
+  final TextEditingController emailController=TextEditingController();
+  final FirebaseServices _firebaseService=FirebaseServices();
+
+   void resetPassword() async {
+  final email = emailController.text.trim();
+
+  if (email.isEmpty) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(content: Text('Please enter your email')),
+    );
+    return;
+  }
+
+  final result = await _firebaseService.sendPasswordResetEmail(email);
+
+  if (result == null) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Password reset link sent to $email')),
+    );
+
+    await Future.delayed(const Duration(seconds: 2));
+    Get.offAll(() => login());
+  } else {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text(result)),
+    );
+  }
+}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,6 +68,7 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                 height: 20,
               ),
               TextField(
+                controller: emailController,
                 decoration: InputDecoration(
                     labelText: 'Email Id',
                     filled: true,
@@ -47,7 +81,8 @@ class _ForgotpasswordState extends State<Forgotpassword> {
                 height: 20,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () {resetPassword();
+                },
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8)),

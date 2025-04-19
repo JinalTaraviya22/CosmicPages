@@ -18,7 +18,7 @@ class userprofile extends StatefulWidget {
 }
 
 class _userprofileState extends State<userprofile> {
-   final Snackbar _snackbar = Snackbar();
+  final Snackbar _snackbar = Snackbar();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -251,21 +251,23 @@ class _userprofileState extends State<userprofile> {
                 onPressed: () async {
                   try {
                     await UserController.logout();
-                    _snackbar.showCustomSnackBar(
-                      context: context,
-                      message: "Logged out successfully",
-                      isSuccess: true,
-                    );
-
+                    if (context.mounted) {
+                      _snackbar.showCustomSnackBar(
+                        context: context,
+                        message: "Logged out successfully",
+                        isSuccess: true,
+                      );
+                    }
                     // Navigate to login screen
-                    Get.offAll(() =>
-                        login());
+                    Get.offAll(() => login());
                   } catch (e) {
-                    _snackbar.showCustomSnackBar(
-                      context: context,
-                      message: "Failed to logout: ${e.toString()}",
-                      isSuccess: false,
-                    );
+                    if (context.mounted) {
+                      _snackbar.showCustomSnackBar(
+                        context: context,
+                        message: "Failed to logout: ${e.toString()}",
+                        isSuccess: false,
+                      );
+                    }
                   }
                 },
                 style: ElevatedButton.styleFrom(

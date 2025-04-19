@@ -55,7 +55,7 @@ class Snackbar {
             ElevatedButton(
               onPressed: onButtonPressed ??
                   () {
-                    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+                      // ScaffoldMessenger.of(context).hideCurrentSnackBar();
                   },
               style: ElevatedButton.styleFrom(
                 shape: RoundedRectangleBorder(

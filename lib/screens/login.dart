@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cosmic_pages/controller/snackbar_controller.dart';
 import 'package:cosmic_pages/controller/user_auth.dart';
-import 'package:cosmic_pages/screens/bottomnavbar.dart';
 import 'package:cosmic_pages/screens/dashboard_with_nav.dart';
 import 'package:cosmic_pages/screens/forgotPassword.dart';
-import 'package:cosmic_pages/screens/home.dart';
 import 'package:cosmic_pages/screens/register.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
